@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use   App\Http\Controllers;
+use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,13 @@ use   App\Http\Controllers;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+   return 'hello world';
 });
-// Route::get( uri: '/test' , action: [TestController::class,'test']) ;
+
+Route::get('/posts',[PostController::class, 'index'])->name('posts.index');
+Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+Route::post('/posts',[PostController::class, 'store'])->name('posts.store');
+Route::get('/hello', function(){
+    
+});
