@@ -24,7 +24,9 @@
                     <td>{{$post['title']}}</td>
                     <td>{{$post['posted_by']}}</td>
                     <td>{{$post['created_at']}}</td>
-                    <td><a href="{{route('posts.show', $post['id'])}}" class="btn btn-info">View</a></td>
+                    <td><a href="{{route('posts.show', $post['id'])}}" class="btn btn-primary">View</a>
+                        <a href="{{route('posts.edit', $post['id'])}}" class="btn btn-info">Edit</a>
+                        <a href="" class="btn btn-danger">Delete</a></td>
                 </tr>
             @endforeach
             </tbody>
