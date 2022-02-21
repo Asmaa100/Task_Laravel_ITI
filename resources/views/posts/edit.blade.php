@@ -18,9 +18,9 @@
     <div class="mb-3">
         <label class="form-label">Post Creator</label>
         <select name="post_creator" class="form-control">
-            <option disabled>Creator</option>
-            <option value=" {{$post['posted_by'] == "Asmaa" ? "selected" : "" }} ">Asmaa</option>
-            <option value=" {{$post['posted_by'] =="Ebrahim" ? "selected" : "" }} ">Ebrahim</option>
+        @foreach ($users as $user)
+                    <option value="{{$user->id}}">{{$user->name}}</option>
+                    @endforeach
          
         </select>
     </div>

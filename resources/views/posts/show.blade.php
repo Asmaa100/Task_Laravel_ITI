@@ -9,9 +9,9 @@
         </div>
         <div class="card-body">
             <h5>Title</h5>
-            <p>{{ $post['title'] }}</p>
+            <p>{{ $post->title }}</p>
             <h5>Description</h5>
-            <p>{{ $post['description'] }}</p>
+            <p>{{ $post->description }}</p>
         </div>
     </div>
     <div class="card mt-3">
@@ -20,11 +20,11 @@
         </div>
         <div class="card-body">
             <h5>Name</h5>
-            <p>{{ $post['posted_by'] }}</p>
+            <p>{{$post->user ? $post->user->name : 'Not Found'}}</p>
             <h5>Email</h5>
-            <p>{{ $post['email'] }}</p>
+            <p>{{$post->user ? $post->user->email : 'Not Found'}}</p>
             <h5>Created at</h5>
-            <p>{{ $post['created_at'] }}</p>
+            <p>{{ $date }}</p>
         </div>
     </div>
 </div>

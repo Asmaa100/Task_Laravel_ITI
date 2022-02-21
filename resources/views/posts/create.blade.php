@@ -15,9 +15,10 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Post Creator</label>
-                <select name="post_creator" class="form-control">
-                    <option value="1">Asmaa</option>
-                    <option value="2">Ebrahim</option>
+                <select name="user_id" class="form-control">
+                  @foreach ($users as $user)
+                    <option value="{{$user->id}}">{{$user->name}}</option>
+                    @endforeach
                 </select>
               </div>
             <button type="submit" class="btn btn-success">Submit</button>

@@ -19,16 +19,29 @@
             </thead>
             <tbody>
             @foreach ($posts as $post)
+           
                 <tr>
-                    <th scope="row">{{$post['id']}}</th>
-                    <td>{{$post['title']}}</td>
-                    <td>{{$post['posted_by']}}</td>
-                    <td>{{$post['created_at']}}</td>
-                    <td><a href="{{route('posts.show', $post['id'])}}" class="btn btn-primary">View</a>
-                        <a href="{{route('posts.edit', $post['id'])}}" class="btn btn-info">Edit</a>
-                        <a href="" class="btn btn-danger">Delete</a></td>
+                    <th scope="row">{{$post->id}}</th>
+                    <td>{{$post->title}}</td>
+                    <td>{{$post->user ? $post->user->name : 'Not Found'}}</td>
+                    <td>{{$post->created_at}}</td>
+                    <td><a href="{{route('posts.show', $post['id'])}}" class="btn btn-primary">View</a> </td>
+                        <td><a href="{{route('posts.edit', $post['id'])}}" class="btn btn-info">Edit</a></td>
+                        <td>
+                            <form id="myform" action="{{ route('posts.destroy', $post->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete it ?');">
+                                @method('delete')
+                                @csrf
+                                <input type="submit" class="btn btn-danger delete "  title='Delete'  value="Delete">
+                                
+                            </form>
+                        </td>
+                      
+                        
                 </tr>
             @endforeach
             </tbody>
+           
           </table>
+          {{ $posts->links() }}
+          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 @endsection
