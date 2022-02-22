@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
 use Carbon\Carbon;
+use App\Http\Requests\PostRequest;
+use App\Http\Requests\UpdatePostRequest;
 class PostController extends Controller
 {
     
@@ -26,7 +28,7 @@ class PostController extends Controller
     }
 
     
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         // $request->validate([
         //     'title' => ['required' ,'min:5'],
@@ -57,7 +59,7 @@ class PostController extends Controller
     }
 
    
-    public function update(Request $request, $postID)
+    public function update(UpdatePostRequest $request, $postID)
     {
         // @dd($request->all());
         Post::where('id', $postID)->update([

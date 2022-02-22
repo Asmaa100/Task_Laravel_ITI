@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class UpdatePostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,8 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'unique:posts', 'min:3'],
-            'description' => ['required', 'min:10'],
-            // 'id' => ['exists:users'],
+            'title' => ['required', 'min:3'],
+            'description' => ['required', 'min:10']
         ];
     }
-    // public function messages()
-    // {
-    //     return [
-    //         'title.required' => 'Overrided Required Message',
-    //         'title.min' => 'Changed the min rule default message for title'
-    //     ];
-    // }
 }
